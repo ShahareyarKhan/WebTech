@@ -12,8 +12,8 @@ const customStyles = {
         right: 'auto',
         bottom: 'auto',
         marginRight: '-50%',
-        width:"400px",
-        border:"1px solid black",
+        width: "400px",
+        border: "1px solid black",
         transform: 'translate(-50%, -50%)',
     },
 };
@@ -69,20 +69,7 @@ const Notes = () => {
         }
     };
 
-    const deleteNote = async (id) => {
-        try {
-            await fetch(`http://localhost:5000/api/notes/deletenote/${id}`, {
-                method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json',
-                    authorization: localStorage.getItem('token'),
-                },
-            });
-            setNotes(notes.filter((note) => note._id !== id));
-        } catch (error) {
-            console.error('Error deleting note:', error.message);
-        }
-    };
+
 
     function openModal() {
         setIsOpen(true);
@@ -102,9 +89,7 @@ const Notes = () => {
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-8 lg:grid-cols-3 p-8'>
                     {notes.map(note => (
                         <div key={note.id} className="note rounded-xl relative p-2">
-                            <div className='absolute top-0 flex right-0 p-2 gap-3 '>
-                                <div><MdDelete className='text-3xl' onClick={() => deleteNote(note._id)} /></div>
-                            </div>
+
                             <div className='flex flex-col'>
 
                                 <div className='text-xl font-semibold '>
@@ -129,7 +114,7 @@ const Notes = () => {
                         onRequestClose={closeModal}
                         style={customStyles}
                         contentLabel="Add Note Modal"
-                        
+
                     >
                         <button onClick={closeModal} className='text-sm'>Close</button>
                         <h2 className='text-2xl font-semibold text-center'>Add Note</h2>
@@ -138,7 +123,7 @@ const Notes = () => {
                                 <input type="text" className='w-full border-b border-black outline-none' placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} />
                             </div>
                             <div className='w-full my-5'>
-                                <textarea placeholder="Description"  className='w-full border-b border-black outline-none' value={description} onChange={(e) => setDescription(e.target.value)} />
+                                <textarea placeholder="Description" className='w-full border-b border-black outline-none' value={description} onChange={(e) => setDescription(e.target.value)} />
                             </div>
                             <div>
                                 <button type="submit" className='w-full btn bg-indigo-500 p-2 rounded'>Add Note</button>
