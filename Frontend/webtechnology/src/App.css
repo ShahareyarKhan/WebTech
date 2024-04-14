@@ -1,0 +1,62 @@
+button {
+  transition: 2s all ease;
+}
+
+button:hover {
+  border-radius: 20px;
+  background: none;
+  border: 1px solid black;
+  box-shadow: 10px 10px 10px rgb(190, 189, 189);
+}
+
+input {
+  background: none;
+}
+
+.toggle {
+  cursor: pointer;
+  transition: 0.5s all linear;
+}
+
+.box {
+  box-shadow: 4px 7px 30px rgba(113, 121, 211, 0.586);
+}
+
+.boxshadow {
+  transition: 1s all linear;
+  box-shadow: 10px 10px 20px rgb(168, 168, 168), -10px -10px 20px rgb(203, 202, 202);
+}
+
+.boxshadow:hover {
+  border: 2px solid black;
+}
+
+.boxshadow2 {
+  box-shadow: 10px 10px 10px rgb(177, 180, 185) inset, -10px -10px 10px rgb(177, 180, 185) inset;
+}
+
+.hidden {
+  display: none;
+}
+
+.block {
+  display: block;
+}
+
+.appear {
+  background: #000;
+  font-size: 300px;
+}
+
+.logout:hover> :nth-child(2) {
+  display: block;
+}
+
+.note {
+  background: #9CAFAA;
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
